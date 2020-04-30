@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_30_200502) do
+ActiveRecord::Schema.define(version: 2020_04_30_212717) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "influences", force: :cascade do |t|
+    t.integer "strength"
+    t.bigint "influencing_robot_id", null: false
+    t.bigint "influenced_robot_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["influenced_robot_id"], name: "index_influences_on_influenced_robot_id"
+    t.index ["influencing_robot_id"], name: "index_influences_on_influencing_robot_id"
+  end
 
   create_table "intrinsic_desires", force: :cascade do |t|
     t.integer "strength"

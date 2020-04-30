@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+Influence.destroy_all
 IntrinsicDesire.destroy_all
 ProductItem.destroy_all
 
@@ -31,7 +32,7 @@ end
 
 # ProductItem
 
-## These are runtime elements
+## These elements are created at runtime
 
 
 # IntrinsicDesire
@@ -43,6 +44,22 @@ Robot.all.each do |robot|
 
     desires.each do |desire|
         IntrinsicDesire.create(strength: rand(1...5), robot: robot, product_type: desire)
+    end
+
+end
+
+# Influences 
+
+Robot.all.each do |robot|
+
+    others_influenced = rand(5...15)
+
+    
+
+    influenced = Robot.all.filter{|r| r.id != robot.id}.sample(others_influenced)
+
+    influenced.each do |influenced_robot|
+        Influence.create(strength: rand(1...5), influencing_robot: robot, influenced_robot: influenced_robot)
     end
 
 end

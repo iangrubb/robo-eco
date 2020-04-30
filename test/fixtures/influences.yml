@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  strength: 1
+  influencing_robot: one
+  influenced_robot: one
+
+two:
+  strength: 1
+  influencing_robot: two
+  influenced_robot: two
