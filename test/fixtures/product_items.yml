@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  current_durability: 1
+  robot: one
+  product_type: one
+
+two:
+  current_durability: 1
+  robot: two
+  product_type: two
