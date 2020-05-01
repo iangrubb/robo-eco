@@ -1,0 +1,10 @@
+<h1>Robots#index</h1>
+
+
+<% @robots.each do |robot|%>
+    <div>
+        <%= link_to robot.name, robot_path(robot) %>
+    </div>
+    
+<% end %>
+
