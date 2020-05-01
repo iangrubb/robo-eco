@@ -6,6 +6,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+DailyRecord.destroy_all
+Day.destroy_all
+
 Influence.destroy_all
 IntrinsicDesire.destroy_all
 ProductItem.destroy_all
@@ -32,7 +35,7 @@ end
 
 # ProductItem
 
-## These elements are created at runtime
+## These objects are created at runtime
 
 
 # IntrinsicDesire
@@ -63,6 +66,10 @@ Robot.all.each do |robot|
     end
 
 end
+
+# Day / DailyRecord
+
+## These objects are created at runtime
 
 
 

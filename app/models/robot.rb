@@ -11,4 +11,6 @@ class Robot < ApplicationRecord
     has_many :influences_from, class_name: "Influence", foreign_key: "influenced_robot_id"
     has_many :robots_influencing, through: :influences_from, source: :influencing_robot
 
+    has_many :daily_records
+
 end
