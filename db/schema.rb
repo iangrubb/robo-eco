@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_01_010630) do
+ActiveRecord::Schema.define(version: 2020_05_01_030950) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -89,10 +89,28 @@ ActiveRecord::Schema.define(version: 2020_05_01_010630) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "production_orders", force: :cascade do |t|
+    t.integer "remaining_production_time"
+    t.bigint "blueprint_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["blueprint_id"], name: "index_production_orders_on_blueprint_id"
+  end
+
   create_table "robots", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "shipping_orders", force: :cascade do |t|
+    t.bigint "connection_id", null: false
+    t.string "dependency_type", null: false
+    t.bigint "dependency_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["connection_id"], name: "index_shipping_orders_on_connection_id"
+    t.index ["dependency_type", "dependency_id"], name: "index_shipping_orders_on_dependency_type_and_dependency_id"
   end
 
   add_foreign_key "blueprints", "product_types"
@@ -104,4 +122,6 @@ ActiveRecord::Schema.define(version: 2020_05_01_010630) do
   add_foreign_key "intrinsic_desires", "robots"
   add_foreign_key "product_items", "product_types"
   add_foreign_key "product_items", "robots"
+  add_foreign_key "production_orders", "blueprints"
+  add_foreign_key "shipping_orders", "connections"
 end
