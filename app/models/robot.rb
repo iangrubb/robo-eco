@@ -13,4 +13,7 @@ class Robot < ApplicationRecord
 
     has_many :daily_records
 
+    has_many :blueprints
+    has_many :producible_products, through: :blueprints, source: :product_type
+
 end

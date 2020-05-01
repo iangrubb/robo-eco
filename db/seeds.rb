@@ -6,6 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+Blueprint.destroy_all
+
 DailyRecord.destroy_all
 Day.destroy_all
 
@@ -57,8 +59,6 @@ Robot.all.each do |robot|
 
     others_influenced = rand(5...15)
 
-    
-
     influenced = Robot.all.filter{|r| r.id != robot.id}.sample(others_influenced)
 
     influenced.each do |influenced_robot|
@@ -70,6 +70,18 @@ end
 # Day / DailyRecord
 
 ## These objects are created at runtime
+
+# Blueprints
+
+Robot.all.each do |robot|
+    blueprint_count = rand(3...5)
+    product_types = ProductType.all.sample(blueprint_count)
+
+    product_types.each do |type|
+        deduction = rand(0...2)
+        Blueprint.create(effective_production_time: type.base_production_time - deduction, robot: robot, product_type: type)
+    end
+end
 
 
 
