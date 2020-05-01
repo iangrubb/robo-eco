@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_01_004122) do
+ActiveRecord::Schema.define(version: 2020_05_01_010630) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,15 @@ ActiveRecord::Schema.define(version: 2020_05_01_004122) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["product_type_id"], name: "index_blueprints_on_product_type_id"
     t.index ["robot_id"], name: "index_blueprints_on_robot_id"
+  end
+
+  create_table "connections", force: :cascade do |t|
+    t.bigint "robot_id", null: false
+    t.bigint "connected_robot_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["connected_robot_id"], name: "index_connections_on_connected_robot_id"
+    t.index ["robot_id"], name: "index_connections_on_robot_id"
   end
 
   create_table "daily_records", force: :cascade do |t|
@@ -88,6 +97,7 @@ ActiveRecord::Schema.define(version: 2020_05_01_004122) do
 
   add_foreign_key "blueprints", "product_types"
   add_foreign_key "blueprints", "robots"
+  add_foreign_key "connections", "robots"
   add_foreign_key "daily_records", "days"
   add_foreign_key "daily_records", "robots"
   add_foreign_key "intrinsic_desires", "product_types"

@@ -6,6 +6,10 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+
+
+
+Connection.destroy_all
 Blueprint.destroy_all
 
 DailyRecord.destroy_all
@@ -82,6 +86,21 @@ Robot.all.each do |robot|
         Blueprint.create(effective_production_time: type.base_production_time - deduction, robot: robot, product_type: type)
     end
 end
+
+
+# Connections
+
+# sorted_robots = Robot.all.sort_by{|r| r.id}
+
+Robot.all.to_a.combination(2).to_a.sample(200).each do |pair|
+
+    Connection.create(robot: pair[0], connected_robot: pair[1])
+    Connection.create(robot: pair[1] , connected_robot: pair[0])
+
+end
+
+
+
 
 
 
