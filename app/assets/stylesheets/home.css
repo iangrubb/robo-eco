@@ -1,0 +1,42 @@
+#robot-welcome-container {
+    border: solid 4px var(--light-ui);
+    border-radius: 32px;
+    background: var(--white);
+
+    width: 40%;
+    max-width: 300px;
+    min-width: 200px;
+
+    margin: 4vh 0 0 0;
+
+    position: relative;
+    
+}
+
+#robot-welcome-container > img {
+    width: 100%;
+    height: 100%;
+}
+
+#robot-welcome-container > h2, #robot-welcome-container > h3 {
+    position: absolute;
+    margin: 0;
+    padding: 8px 16px;
+    color: var(--white);
+    background: var(--dark-ui);
+    border: solid 4px var(--light-ui);
+    border-radius: 16px;
+    width: fit-content;
+
+    font-family: var(--body-font);
+}
+
+#robot-welcome-container > h2 {
+    top: 5%;
+    left: -30%;
+}
+
+#robot-welcome-container > h3 {
+    top: 60%;
+    left: 70%;
+}

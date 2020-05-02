@@ -1,0 +1,43 @@
+
+header {
+
+    position: fixed;
+    
+    height: 8%;
+
+    background: var(--dark-ui);
+    color: var(--white);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 0 4vw;
+
+    border-bottom: solid 4px var(--light-ui);
+    border-right: solid 4px var(--light-ui);
+    border-left: solid 4px var(--light-ui);
+    border-bottom-left-radius: 32px;
+    border-bottom-right-radius: 32px;
+}
+
+header > h1 {
+    padding: 0 1vw;
+}
+
+nav > a {
+    margin: 0 0.2vw;
+    color: var(--white);
+
+    font-size: 18px;
+    text-decoration: none;
+
+    box-shadow: 0 1px 0 var(--white);
+
+    transition: all 0.2s ease;
+}
+
+nav > a:hover {
+    box-shadow: 0 2px 0 var(--white);
+    font-weight: 900;
+}
