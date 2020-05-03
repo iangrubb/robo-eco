@@ -5,7 +5,7 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', 'navbar', 'home', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', 'navbar', 'home', 'robot-show', 'robot-index', 'shared', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 
     <link href="https://fonts.googleapis.com/css2?family=Jura&family=Kelly+Slab&display=swap" rel="stylesheet">
@@ -21,8 +21,8 @@
         <%= link_to "Orders", shipping_orders_path %>
       </nav>
     </header>
-    <div id="main-content">
-      <%= yield %>
-    </div>
+    
+    <%= yield %>
+    
   </body>
 </html>

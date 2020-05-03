@@ -1,9 +1,14 @@
 
 header {
 
+    z-index: 2;
+
     position: fixed;
     
+    min-width: 300px;
+
     height: 8%;
+    min-height: 50px;
 
     background: var(--dark-ui);
     color: var(--white);
@@ -13,6 +18,8 @@ header {
     align-items: center;
 
     padding: 0 4vw;
+
+    box-shadow: 2px 2px 8px var(--dark-ui);
 
     border-bottom: solid 4px var(--light-ui);
     border-right: solid 4px var(--light-ui);

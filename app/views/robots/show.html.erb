@@ -1,5 +1,64 @@
-<h1>Robots#show</h1>
 
-<h2><%=@robot.name%></h2>
+
+<div id="main-content" class="robot-show-layout">
+
+    <div id="robot-basic-info" >
+
+        <div class="robot-image-frame">
+
+            <h2 class="dark-ui-bubble"><%=@robot.name%></h2>
+
+            <%= image_tag "https://robohash.org/#{@robot.name}?size=200x200" %>
+
+            <div class="light-ui-bubble">
+                Info!
+            </div>
+        </div>
+       
+    </div>
+
+
+    <div id="robot-orders" class="ui-panel">
+
+        <h2>Orders</h2>
+
+
+    </div>
+
+
+    <div id="robot-social-info" class="ui-panel">
+    
+        <h2>Social</h2>
+
+        <div style="width:100%;height:100%;background:red"></div>
+
+
+    </div>
+
+
+    <div id="robot-product-info" class="ui-panel">
+
+        <h2>Products</h2>
+
+
+    </div>
+
+
+
+    <div id="robot-analytics" class="ui-panel">
+
+        <h2>Data</h2>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
 
 

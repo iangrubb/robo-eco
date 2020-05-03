@@ -1,10 +1,11 @@
-<h1>Robots#index</h1>
 
+<div id="main-content" class="robot-index-layout">
 
-<% @robots.each do |robot|%>
-    <div>
-        <%= link_to robot.name, robot_path(robot) %>
-    </div>
-    
-<% end %>
+    <% @robots.each do |robot|%>
+        <div>
+            <%= link_to robot.name, robot_path(robot) %>
+        </div>  
+    <% end %>
+
+</div>
 

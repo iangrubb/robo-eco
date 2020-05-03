@@ -1,8 +1,14 @@
 
-<% @product_types.each do |product| %>
+<div id="main-content">
 
-    <div>
-        <%= link_to product.name, product_type_path(product) %>
-    </div>
+    <% @product_types.each do |product| %>
 
-<% end %>
+        <div>
+            <%= link_to product.name, product_type_path(product) %>
+        </div>
+
+    <% end %>
+
+
+</div>
+
