@@ -5,6 +5,7 @@
     margin: 20px 0 0 0;
 
     display: grid;
+    grid-template-columns: 100%;
     gap: 2vw;
     grid-template-areas: 
         "b"
@@ -27,7 +28,7 @@
         grid-template-columns: 45% 55%;
         grid-template-areas: 
             "b o"
-            "s o"
+            "b p"
             "s p"
             "s a"
         ;
@@ -49,6 +50,7 @@
     left: -20%;
     margin: 0;
     white-space: nowrap;
+    font-size: 20px;
 }
 
 #robot-basic-info .robot-image-frame {
@@ -58,7 +60,7 @@
 }
 
 #robot-basic-info img {
-    max-height: 100%;
+    
 }
 
 #robot-basic-info .light-ui-bubble {
@@ -74,21 +76,52 @@
 
 
 
-
-
 #robot-orders {
     grid-area: o;
 }
 
+
+
+
 #robot-product-info {
     grid-area: p;
+    display: flex;
+    justify-content: space-evenly;
 }
+
+#robot-product-info > .ui-subpanel {
+    width: 45%;
+}
+
+
 
 #robot-social-info{
     grid-area: s;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
 }
+
+#robot-social-info > .ui-subpanel {
+
+    width: 45%;
+    height: 100%;
+   
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+
+
 
 #robot-analytics {
     grid-area: a;
+}
+
+#robot-analytics > .ui-subpanel {
+    width: 100%;
+    height: 100%;
 }
 

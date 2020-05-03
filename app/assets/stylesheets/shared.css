@@ -26,14 +26,16 @@
     border-radius: 16px;
     box-shadow: 2px 2px 4px var(--dark-ui);
 
-    padding: 8vh 1vw 2vh 1vw;
+    padding: 3.5vh 1vw 2vh 1vw;
+    margin: 1vh 0 0 0;
 }
 
 .ui-panel > h2 {
     position: absolute;
-    top: 1vh;
-    left: -1.5vw;
+    top: -2.5vh;
+    left: 1.5vw;
     font-family: var(--body-font);
+    font-size: 18px;
     margin: 0;
     color: var(--white);
     background: var(--dark-ui);
@@ -43,12 +45,11 @@
 }
 
 .ui-subpanel {
-    background: var(--light-ui);
-
-    margin: 1vh 1vw;
     padding: 1vh 1vw;
+    background: var(--light-ui);
     box-shadow: inset 2px 2px 8px var(--dark-ui);
     border-radius: 16px;
+    overflow: scroll;
 }
 
 .robot-image-frame {
