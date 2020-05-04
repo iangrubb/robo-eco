@@ -19,6 +19,15 @@
 
         <h2>Orders</h2>
 
+        <div class="ui-subpanel" >
+
+        
+        </div>
+
+        <div class="order-button-panel">
+        
+        </div>
+
 
     </div>
 
@@ -29,6 +38,7 @@
 
         <div class="ui-subpanel" >
             <h3>Influenced</h3>
+            
             <% @robot.robots_influenced.each do |influenced_robot|%>
                 <div><%= link_to influenced_robot.name, robot_path(influenced_robot) %></div>
             <% end %>
@@ -72,13 +82,3 @@
     </div>
 
 </div>
-
-
-
-
-
-
-
-
-
-

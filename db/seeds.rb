@@ -7,7 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-
+ShippingOrder.destroy_all
+ProductionOrder.destroy_all
 
 Connection.destroy_all
 Blueprint.destroy_all
@@ -39,10 +40,6 @@ end
     ProductType.create(name: name, max_durability: durability, base_production_time: production)
 end
 
-# ProductItem
-
-## These objects are created at runtime
-
 
 # IntrinsicDesire
 
@@ -71,9 +68,6 @@ Robot.all.each do |robot|
 
 end
 
-# Day / DailyRecord
-
-## These objects are created at runtime
 
 # Blueprints
 
@@ -90,8 +84,6 @@ end
 
 # Connections
 
-# sorted_robots = Robot.all.sort_by{|r| r.id}
-
 Robot.all.to_a.combination(2).to_a.sample(200).each do |pair|
 
     Connection.create(robot: pair[0], connected_robot: pair[1])
@@ -99,6 +91,74 @@ Robot.all.to_a.combination(2).to_a.sample(200).each do |pair|
 
 end
 
+
+
+
+
+## Runtime objects:
+
+
+
+# Day / DailyRecord
+
+(1...40).each do |num|
+
+    day = Day.create(count: num)
+
+    Robot.all.each do |robot|
+        DailyRecord.create(total_satisfaction: rand(5...45), activity: ["idle", "production", "shipping"].sample, robot: robot, day: day)
+    end
+
+end
+
+
+# ProductItem
+
+Robot.all.each do |robot|
+
+    item_count = rand(2...6)
+    types = ProductType.all.sample(item_count)
+
+    types.each do |product_type|
+
+        ProductItem.create(current_durability: rand(1...8), owner: robot, type: product_type)
+    
+    end
+
+end
+
+
+
+# ShippingOrders and ProductionOrders
+
+Robot.all.each do |robot|
+
+
+    prod_order_count = [rand(1...3), robot.blueprints.length].min
+
+    production_blueprints = robot.blueprints.sample(prod_order_count)
+
+    production_blueprints.each do |blueprint|
+
+        previous_order = ProductionOrder.create(blueprint: blueprint, remaining_production_time: rand(1...blueprint.effective_production_time))
+
+        chain_length = rand(0...5)
+
+        previous_connection = robot.connections.sample
+
+        chain_length.times do
+
+            previous_order = ShippingOrder.create(connection: previous_connection, dependency: previous_order)
+
+            previous_connection = previous_connection.connected_robot.connections.sample
+
+        end
+
+
+    end
+
+
+end
 
 
 
