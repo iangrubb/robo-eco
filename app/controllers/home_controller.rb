@@ -2,10 +2,18 @@ class HomeController < ApplicationController
 
     def home
 
+        @current_day = Day.maximum("count")
 
-        # current day
+        record = Day.includes(:daily_records).where(count: (@current_day - 9)..@current_day)
 
-        # total_satisfaction for all robos over the past 10 days
+        @recent_satisfaction = record.each_with_object({}) do |day, obj|
+            
+            obj[day.count] = day.daily_records.reduce(0){|acc, rec| acc + rec.total_satisfaction}
+
+        end
+
+        # determine welcome message
+
         
     end
 end

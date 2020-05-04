@@ -18,4 +18,6 @@ class Robot < ApplicationRecord
     has_many :connections
     has_many :connected_robots, through: :connections, source: :connected_robot
 
+    
+
 end

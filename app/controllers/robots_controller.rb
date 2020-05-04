@@ -5,6 +5,10 @@ class RobotsController < ApplicationController
 
     # every robot, with current satisfaction, number of shipping orders, number of production orders
 
+    @test = Robot.left_outer_joins(blueprints: :production_orders)
+
+    byebug
+
 
   end
 

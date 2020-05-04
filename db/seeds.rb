@@ -93,11 +93,7 @@ end
 
 
 
-
-
 ## Runtime objects:
-
-
 
 # Day / DailyRecord
 
