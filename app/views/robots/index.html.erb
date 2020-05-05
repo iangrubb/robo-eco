@@ -1,10 +1,11 @@
 
 <div id="main-content" class="robot-index-layout">
 
-
     <% @robots.each do |robot|%>
         <div>
-            <%= link_to robot.name, robot_path(robot) %>
+            <h2><%= robot.name %></h2>
+            <%= image_tag "https://robohash.org/#{robot.name}?size=100x100" %>
+            <%= link_to "View", robot_path(robot) %>
         </div>  
     <% end %>
 

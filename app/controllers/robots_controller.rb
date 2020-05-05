@@ -5,9 +5,20 @@ class RobotsController < ApplicationController
 
     # every robot, with current satisfaction, number of shipping orders, number of production orders
 
-    @test = Robot.left_outer_joins(blueprints: :production_orders)
+    @production_order_count = Robot.joins(blueprints: :production_orders).group(:id).count
 
-    byebug
+    @shipping_order_count = Robot.joins(connections: :shipping_orders).group(:id).count
+
+
+    @current_day = Day.maximum("count")
+
+    day = Day.find_by(count: @current_day)
+
+    @satisfaction = Robot.joins(daily_records: :day).where(daily_records: { day: day}).pluck(:id, :"daily_records.total_satisfaction")
+
+
+
+    # Roll this into the produced @robots array
 
 
   end

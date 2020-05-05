@@ -13,14 +13,10 @@
 
 }
 
-*, *:before, *:after {
+* {
     box-sizing: border-box;
-    font-family: var(--body-font);
 }
 
-h1, h2 {
-    font-family: var(--display-font);
-}
 
 body {
     margin: 0;
