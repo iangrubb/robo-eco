@@ -11,8 +11,8 @@ Topics:
 
 ## Advice on Learning CSS
 
-- Take it seriously (it matters for getting a job)
 - Set aside time to invest practicing CSS (labs, side projects)
+- Build it yourself to develop your understanding
 - Once you build a foundation, it gets much easier
 - Approach CSS as a developer, not just as a designer (build ugly designs with clean code)
 - Prioratize usability over aesthetics
@@ -27,7 +27,9 @@ Topics:
 
 - *CSS* is a styling language, which provides the means to adjust the appearances of HTML tags.
 
-- To change the appearance of an HTML tag, we make a *declaration*. The declaration targets some *proprty* of a tag and sets its *value*.
+- To change the appearance of an HTML tag, we make a *declaration*. The declaration targets some *proprty* of a tag and sets its *value*. 
+
+
 
 ### Ways to make declarations
 
@@ -36,7 +38,33 @@ Topics:
     - Internal: written in the HTML header.
     - External: written in a seperate file, which is linked to the header.
 
-What are the pros and cons of these approaches?
+Examples: 
+
+```html
+
+    <!-- Inline -->
+    <div style="color:red">Content</div>    
+
+    <!-- Style Sheet -->
+
+    <head>
+        <style>
+            /* Options: */
+            #red-id {
+                color: red
+            }
+            .red-class {
+                color: red
+            }
+            div {
+                color: red
+            }
+        </style> 
+    </head>
+    <body>
+        <div class="red-class" id="red-id"> Content</div>
+    </body>
+```
 
 ### How CSS works
 
@@ -63,18 +91,18 @@ Tools:
 
 - Media Queries
 - Responsive units (%, vw/vh, rem)
-- Flexbox and Grid
+- Flexbox (for 1D layouts) and Grid (for 2D layouts)
 
 ### Accessible Design
 
-Design that works no matter how the user access your content.
+Design that works no matter how the user accesses your content.
 
 Some guidelines:
 
 - Use image alt text
 - Use approprate levels of contrast.
 - Use semantic HTML tags / generally don't display site content exclussively by css.
-- Use focus styles
+- Don't remove focus styles
 
 
 
@@ -85,7 +113,7 @@ We'll be working on the index page styling, which we'll keep in `application.css
 ### Making Cards
 
 - Box Model: content, padding, border, margin.
-- Make your life easier with `* { box-sizing: border-box }`
+- Make your life easier with `*{ box-sizing: border-box }`
 - Spice things up with `border-radius` and `box-shadow`.
 
 ### Adding Colors and Fonts

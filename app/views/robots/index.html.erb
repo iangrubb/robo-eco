@@ -2,15 +2,32 @@
 <div id="main-content" class="robot-index-layout">
 
     <% @robots.each do |robot|%>
-        <div class="robot-index-card">
-            <h2><%= robot.name %></h2>
-            <%= image_tag "https://robohash.org/#{robot.name}?size=300x300" %>
-            <%= link_to "View", robot_path(robot) %>
 
-            <div class="tester">
-                <div class="inside" style="height: 90%" > </div>
+        <div class="robot-index-card">
+        
+            <h2 class="robot-index-title "><%= robot.name %></h2>
+
+            <%= image_tag "https://robohash.org/#{robot.name}?size=300x300", alt: robot.name %>
+
+            <div class="info-panel">
+            
+                <span >🛠 <%=@production_order_count[robot.id] %></span>
+                <span >📦 <%= @shipping_order_count[robot.id] %></span>
+                <span >😀<%= robot.total_satisfaction %></span>
+
+            </div> 
+            
+
+            <%= link_to "View", robot_path(robot), class: "robot-show-link" %>
+
+
+            <div class="status-frame">
+                <div class="status-bar" style="height: <%= robot.total_satisfaction %>%;">
+                </div>
             </div>
+            
         </div>  
+
     <% end %>
 
 </div>
