@@ -2,10 +2,14 @@
 <div id="main-content" class="robot-index-layout">
 
     <% @robots.each do |robot|%>
-        <div>
+        <div class="robot-index-card">
             <h2><%= robot.name %></h2>
-            <%= image_tag "https://robohash.org/#{robot.name}?size=100x100" %>
+            <%= image_tag "https://robohash.org/#{robot.name}?size=300x300" %>
             <%= link_to "View", robot_path(robot) %>
+
+            <div class="tester">
+                <div class="inside" style="height: 90%" > </div>
+            </div>
         </div>  
     <% end %>
 

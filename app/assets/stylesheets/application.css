@@ -7,16 +7,19 @@
     --black: #151325;
     --light-ui: #AAAAB6;
     --dark-ui: #4A4658;
-    --confirm: #629D85;
-    --warning: #EAD2AC;
-    --error: #DF928E;
-
+    --confirm: rgb(69, 148, 116);
+    --warning: rgb(219, 187, 81);
+    --error: rgb(173, 89, 84);
 }
 
 * {
     box-sizing: border-box;
+    font-family: var(--body-font);
 }
 
+h1, h2 {
+    font-family: var(--display-font);
+}
 
 body {
     margin: 0;
@@ -32,7 +35,7 @@ body {
 
 #main-content {
 
-    min-width: 300px;
+    min-width: 320px;
     max-width: 1200px;
     width: 80%;
 

@@ -9,7 +9,6 @@ class RobotsController < ApplicationController
 
     @shipping_order_count = Robot.joins(connections: :shipping_orders).group(:id).count
 
-
     @current_day = Day.maximum("count")
 
     day = Day.find_by(count: @current_day)

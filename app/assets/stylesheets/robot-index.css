@@ -2,3 +2,87 @@
 .robot-index-layout {
     
 }
+
+.robot-index-card {
+    border: 8px solid var(--light-ui);
+    width: 280px;
+    margin: 20px;
+    padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    background: var(--dark-ui);
+
+    box-shadow: 2px 2px 8px gray;
+
+    position: relative;
+
+}
+
+.robot-index-card > img {
+    width: 90%;
+    height: auto;
+    border-radius: 16px;
+    box-shadow: inset 2px 2px 8px gray;
+    background: white;
+}
+
+.robot-index-card > a {
+    
+    padding: 2% 10%;
+    margin: 2% 0;
+    border-radius: 16px;
+    text-decoration: none;
+
+    box-shadow: 1px 3px 0 var(--light-ui);
+
+    transition: all 0.05s ease;
+
+    border: 2px solid var(--light-ui);
+
+    color: var(--dark-ui);
+    background: var(--white);
+
+}
+
+.robot-index-card > a:hover {
+    font-weight: bold;
+}
+
+.robot-index-card > a:active {
+    transform: translateY(2px);
+    box-shadow: 1px 1px var(--light-ui);
+}
+
+
+.tester {
+    position: absolute;
+    top: 4%;
+    bottom: 4%;
+    right: 0;
+
+    width: 8%;
+
+    border: 4px solid var(--light-ui);
+    border-radius: 32px;
+
+    transform: translateX(calc(50% + 4px));
+
+    background: var(--white);
+    box-shadow: 0 0 4px gray;
+}
+
+.inside {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    border-bottom-left-radius: 32px;
+    border-bottom-right-radius: 32px;
+
+    background: var(--confirm);
+}
+

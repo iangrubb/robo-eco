@@ -7,12 +7,16 @@ Topics:
 2. Big concepts in CSS
 3. CSS demo: styling the robot index page
 
+
+
 ## Advice on Learning CSS
 
-- 
-
-
-
+- Take it seriously (it matters for getting a job)
+- Set aside time to invest practicing CSS (labs, side projects)
+- Once you build a foundation, it gets much easier
+- Approach CSS as a developer, not just as a designer (build ugly designs with clean code)
+- Prioratize usability over aesthetics
+  
 
 
 ## Big concepts in CSS
@@ -74,28 +78,50 @@ Some guidelines:
 
 
 
-
 ## CSS demo: styling the robot index page
 
-
-
+We'll be working on the index page styling, which we'll keep in `application.css` and `robot-index.css`
 
 ### Making Cards
 
+- Box Model: content, padding, border, margin.
+- Make your life easier with `* { box-sizing: border-box }`
+- Spice things up with `border-radius` and `box-shadow`.
 
 ### Adding Colors and Fonts
 
+- Color: `color`, `background`, `border`, `box-shadow`
+- Font: `font-family`, `font-size`, `font-style`, `font-weight`, `text-decoration`, `text-align`
+- Use external tools to generate CSS values (Coolors, CSS Gradient, Google Fonts)
+- Store colors and fonts in variables
 
 ### Adding Images
 
+- Have a plan for how you'll deal with images of different proportions.
+- Make sure imgages don't get too big. Some options:
+  - Set image `width` / `height` relative to parent (top-down sizing)
+  - Constrain size with `max-width` / `max-height` (bottom-up sizing)
+- Style images with `filter`
 
-### Organizing Elements
+### Organizing Elements in the Card
 
+- Flexbox basics ( `display: flex`, `flex-direction`, `justify-content`, `align-items`)
+- Nest flexboxes to make simple 2d arrangements (though in many cases you'll be better served using grid instead)
+- Useful flex child attributes: `align-self`, `flex-grow`, `flex-shrink`
 
 ### Arranging the Cards
 
+- Responsive arrangement with `flex-wrap: wrap`. 
 
-### Making the Cards Interactive
+### Building a Button
 
+- Use pseudo selectors like `:hover`, `:active`, and `:focus` to respond to user interaction.
+- Perform various transformations on elements using the `transform` attribute.
+- Animate between two states using the `transition` attribute.
 
-### Overlaying Elements
+### Building a Status Bar
+
+- Overlay elements by pairing a `position: relative` parent with a `position: absolute` child.
+- Position elements using `top`, `bottom`, `left`, `right`, and the `translate` transformation.
+- Use `calc` to mix and match different unit types.
+- Render visuals dynamically using inline styling.
